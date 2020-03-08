@@ -1,0 +1,28 @@
+type Query {
+  helloWorld: String!
+}
+
+type Mutation {
+  createTransaction(input: TransactionInput!): Transaction!
+}
+
+type Transaction {
+  id: ID!
+}
+
+scalar DateTimeUTC
+
+input TransactionInput {
+  value: Int,
+  description: String,
+  paymentMethod: PaymentMethod,
+  cardNumber: String,
+  cardOwnerName: String,
+  cardExpirationDate: DateTimeUTC,
+  cardCVV: Int
+}
+
+enum PaymentMethod {
+  DEBIT_CARD,
+  CREDIT_CARD
+}
