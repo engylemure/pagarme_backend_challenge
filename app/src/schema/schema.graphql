@@ -1,5 +1,6 @@
 type Query {
   helloWorld: String!
+  transactions: [Transaction!]!
 }
 
 type Mutation {
@@ -8,18 +9,25 @@ type Mutation {
 
 type Transaction {
   id: ID!
+  value: Int!,
+  description: String!,
+  paymentMethod: PaymentMethod!,
+  cardNumber: String!,
+  cardOwnerName: String!,
+  cardExpirationDate: DateTimeUTC!,
+  cardCVV: Int!
 }
 
 scalar DateTimeUTC
 
 input TransactionInput {
-  value: Int,
-  description: String,
-  paymentMethod: PaymentMethod,
-  cardNumber: String,
-  cardOwnerName: String,
-  cardExpirationDate: DateTimeUTC,
-  cardCVV: Int
+  value: Int!,
+  description: String!,
+  paymentMethod: PaymentMethod!,
+  cardNumber: String!,
+  cardOwnerName: String!,
+  cardExpirationDate: DateTimeUTC!,
+  cardCVV: Int!
 }
 
 enum PaymentMethod {

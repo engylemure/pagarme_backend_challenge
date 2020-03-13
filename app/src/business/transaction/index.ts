@@ -15,18 +15,23 @@ export interface TransactionInt {
 }
 
 export interface Transaction extends TransactionInt {
-    id: string
+    id: string,
+    created_at: string,
+    updated_at: string,
 }
 
 const vctSignature = 'business.protocol.validateCreateTransaction'
+
 export function validateCreateTransaction(data: TransactionInt | nil): Transaction | nil {
     if (R.isNil(data)) {
         throwCustomError(new Error('invalid entry data'), vctSignature, EClassError.USER_ERROR)
     } else {
+        const creationData = toISOString
         return {
             ...data,
             id: uuidv4()
         }
     }
+    return null
 } 
 

@@ -30,6 +30,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@types/jest": "^25.1.4",
     "@types/moment-timezone": "^0.5.12",
     "@types/ramda": "^0.26.43",
     "@types/uuid": "^7.0.0",
